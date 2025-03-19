@@ -19,7 +19,7 @@ const Dashboard = () => {
 
         if (fetchedData.length > 0) {
           const formattedTimestamps = fetchedData.map(entry =>
-            new Date(entry.createdAt).toLocaleString('en-CA', { timeZone: 'UTC' })
+            new Date(entry.createdAt).toLocaleString('en-CA', { timeZone: 'America/Los_Angeles' })
           );
 
           const balances = fetchedData.map(entry => entry.balance);
