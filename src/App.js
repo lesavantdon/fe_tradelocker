@@ -1,19 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'; // Import Routes
-import LoginPage from './pages/loginPage';
-import Dashboard from './pages/dashboard';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/loginpage';
+import DashboardPage from './pages/dashboard'; // Assuming you have a dashboard page
 
-function App() {
+const App = () => {
   return (
-    <Router>
-    <Routes> {/* Use Routes instead of direct Route components */}
-      <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <LoginPage />} />
-      <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+    <Routes>
+      <Route path="/" element={<LoginPage onLogin={() => console.log('User logged in')} />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
     </Routes>
-  </Router>
-
   );
-}
+};
 
 export default App;
